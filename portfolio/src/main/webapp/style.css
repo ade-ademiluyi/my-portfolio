@@ -22,8 +22,15 @@ body {
     font: serif;
 }
 
+.overlay{
+    height: 500px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+    position: relative;
+    top: 0;
+}
+
 .content {
-  background-color: #cccccc;
+  background-image: url("new_images/lagos-3.jpg");
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,7 +53,7 @@ body {
 .menu li {
     list-style: none;
     margin: 0 10px;
-    color:black;
+    color:white;
     cursor: pointer;
 }
 
@@ -109,8 +116,8 @@ img {
 
 .image-thumbnails img {
   margin: 10px;
-  max-height: 200px;
-  max-width: 200px;
+  max-height: 150px;
+  max-width: 150px;
 }
 
 .image-thumbnails img:hover {
