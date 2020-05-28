@@ -1,9 +1,129 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+*{
+    margin: 0;
+    padding:0;
+    font-family: sans-serif;
 }
 
-#greeting-container {
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-quote{
+    width: 80%;
+    height: 70%;
+    top: 20%;
+    left: 150px;
+    right: 0;
+    position: absolute;
+    color: white;
+    font-size: 25px;
+    font: serif;
+}
+
+.content {
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+#myHeader {
+    background-color: black;
+    color: white;
+    padding: 40px;
+    text-align: center;
+} 
+
+.menu ul {
+    display: inline-flex;
+    margin: 20px;
+}
+
+.menu li {
+    list-style: none;
+    margin: 0 10px;
+    color:black;
+    cursor: pointer;
+}
+
+.gallery{
+    top: 20px;
+    right: 80px;
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(#42455a, #42455a),radial-gradient(circle at top left, #fd00da, #19d7f8);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.gallery span{
+    display: block;
+    padding: 8px 22px;
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+}
+
+.image_block
+{
+    height: 80%;
+    top: 80%;
+    left: 230px;
+    right: 0;
+    position: absolute;
+}
+
+.about_me{
+    height: 80%;
+    top: 125%;
+    left: 50px;
+    right: 0;
+    color: black;
+    position: absolute;
+    font-size: 15px;
+    font: serif;
+}
+
+.container {
   margin-top: 20px;
+  background:#42455a;
+}
+
+.image-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-thumbnails img {
+  margin: 10px;
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.image-thumbnails img:hover {
+  border: thick solid black;
+}
+
+.about-me-text{
+    height: 80%;
+    top: 25%;
+    left: 50px;
+    right: 0;
+    color: black;
+    position: absolute;
+    font-size: 15px;
+    font: serif;
 }
