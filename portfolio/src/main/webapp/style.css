@@ -41,6 +41,7 @@ body {
   min-height: 100%;
 }
 
+
 #myHeader {
     background-color: black;
     color: white;
@@ -106,6 +107,18 @@ img {
     font: serif;
 }
 
+.image_discription{
+    height: 80%;
+    top: 560px;
+    left: 20px;
+    right: 0;
+    color: grey;
+    position: absolute;
+    font-size: 15px;
+    font: times;
+    text-align: center;
+}
+
 .socials{
     height: 100%;
     top: 125%;
@@ -148,3 +161,4 @@ img {
     font-size: 15px;
     font: serif;
 }
+
