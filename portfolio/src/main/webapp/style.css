@@ -1,7 +1,7 @@
 *{
-    margin: 0;
-    padding:0;
-    font-family: sans-serif;
+  margin: 0;
+  padding:0;
+  font-family: sans-serif;
 }
 
 body {
@@ -13,22 +13,22 @@ body {
 }
 
 .app-quote{
-    width: 80%;
-    height: 70%;
-    top: 20%;
-    left: 150px;
-    right: 0;
-    position: absolute;
-    color: white;
-    font-size: 25px;
-    font: serif;
+  width: 80%;
+  height: 70%;
+  top: 20%;
+  left: 150px;
+  right: 0;
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  font: serif;
 }
 
 .overlay{
-    height: 500px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
-    position: relative;
-    top: 0;
+  height: 500px;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+  position: relative;
+  top: 0;
 }
 
 .content {
@@ -43,40 +43,40 @@ body {
 
 
 #myHeader {
-    background-color: black;
-    color: white;
-    padding: 40px;
-    text-align: center;
+  background-color: black;
+  color: white;
+  padding: 40px;
+  text-align: center;
 } 
 
 .menu ul {
-    display: inline-flex;
-    margin: 20px;
+  display: inline-flex;
+  margin: 20px;
 }
 
 .menu li {
-    list-style: none;
-    margin: 0 10px;
-    color:black;
-    cursor: pointer;
+  list-style: none;
+  margin: 0 10px;
+  color:black;
+  cursor: pointer;
 }
 
 .gallery{
-    top: 20px;
-    right: 80px;
-    position: absolute;
-    text-decoration: none;
-    color: white;
-    border: 2px solid transparent;
-    border-radius: 20px;
-    background-image: linear-gradient(#42455a, #42455a),radial-gradient(circle at top left, #fd00da, #19d7f8);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
+  top: 20px;
+  right: 80px;
+  position: absolute;
+  text-decoration: none;
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-image: linear-gradient(#42455a, #42455a),radial-gradient(circle at top left, #fd00da, #19d7f8);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
 
 .gallery span{
-    display: block;
-    padding: 8px 22px;
+  display: block;
+  padding: 8px 22px;
 }
 
 img {
@@ -89,45 +89,45 @@ img {
 
 .image_block
 {
-    height: 80%;
-    top: 80%;
-    left: 230px;
-    right: 0;
-    position: absolute;
+  height: 80%;
+  top: 80%;
+  left: 230px;
+  right: 0;
+  position: absolute;
 }
 
 .about_me{
-    height: 80%;
-    top: 0;
-    left: 50px;
-    right: 0;
-    color: black;
-    position: absolute;
-    font-size: 15px;
-    font: serif;
+  height: 80%;
+  top: 0;
+  left: 50px;
+  right: 0;
+  color: black;
+  position: absolute;
+  font-size: 15px;
+  font: serif;
 }
 
 .image_discription{
-    height: 80%;
-    top: 560px;
-    left: 20px;
-    right: 0;
-    color: grey;
-    position: absolute;
-    font-size: 15px;
-    font: times;
-    text-align: center;
+  height: 80%;
+  top: 560px;
+  left: 20px;
+  right: 0;
+  color: grey;
+  position: absolute;
+  font-size: 15px;
+  font: times;
+  text-align: center;
 }
 
 .socials{
-    height: 100%;
-    top: 125%;
-    left: 50px;
-    right: 0;
-    color: black;
-    position: absolute;
-    font-size: 15px;
-    font: serif;
+  height: 100%;
+  top: 125%;
+  left: 50px;
+  right: 0;
+  color: black;
+  position: absolute;
+  font-size: 15px;
+  font: serif;
 }
 
 .container {
@@ -152,13 +152,20 @@ img {
 }
 
 .about-me-text{
-    height: 80%;
-    top: 25%;
-    left: 50px;
-    right: 0;
-    color: black;
-    position: absolute;
-    font-size: 15px;
-    font: serif;
+  height: 80%;
+  top: 25%;
+  left: 50px;
+  right: 0;
+  color: black;
+  position: absolute;
+  font-size: 15px;
+  font: serif;
 }
+
+#project_body{
+  margin-left: auto;
+  margin-right: auto;
+  width: 650px;
+}
+
 
