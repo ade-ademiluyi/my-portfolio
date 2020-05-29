@@ -13,16 +13,19 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Adds a random photo.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Do you know that i love eating jollof rice!', 'I do not like mac n cheese' , 'i love playing chess' , 'I lived most of my live in NIgeria!'];
+function randomizeImage() {
+  // The images directory contains 17 images, so generate a random index between
+  // 1 and 17.
+  const imageIndex = Math.floor(Math.random() * 17) + 1;
+  const imgUrl = 'new_images/lagos-' + imageIndex + '.jpg';
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  const imgElement = document.createElement('img');
+  imgElement.src = imgUrl;
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const imageContainer = document.getElementById('random-image-container');
+  // Remove the previous image.
+  imageContainer.innerHTML = '';
+  imageContainer.appendChild(imgElement);
 }

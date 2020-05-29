@@ -1,9 +1,11 @@
+/**/
 *{
   margin: 0;
   padding:0;
   font-family: sans-serif;
 }
 
+/**/
 body {
   margin: 0;
   padding: 0;
@@ -12,6 +14,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/**/
 .app-quote{
   width: 80%;
   height: 70%;
@@ -24,6 +27,7 @@ body {
   font: serif;
 }
 
+/**/
 .overlay{
   height: 500px;
   background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
@@ -31,6 +35,7 @@ body {
   top: 0;
 }
 
+/**/
 .content {
   background-image: url("new_images/lagos-3.jpg");
   height: 500px;
@@ -41,7 +46,7 @@ body {
   min-height: 100%;
 }
 
-
+/**/
 #myHeader {
   background-color: black;
   color: white;
@@ -49,11 +54,13 @@ body {
   text-align: center;
 } 
 
+/**/
 .menu ul {
   display: inline-flex;
   margin: 20px;
 }
 
+/**/
 .menu li {
   list-style: none;
   margin: 0 10px;
@@ -61,6 +68,7 @@ body {
   cursor: pointer;
 }
 
+/**/
 .gallery{
   top: 20px;
   right: 80px;
@@ -74,11 +82,13 @@ body {
   background-clip: content-box, border-box;
 }
 
+/**/
 .gallery span{
   display: block;
   padding: 8px 22px;
 }
 
+/**/
 img {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -87,6 +97,7 @@ img {
   height: 150px;
 }
 
+/**/
 .image_block
 {
   height: 80%;
@@ -96,6 +107,7 @@ img {
   position: absolute;
 }
 
+/**/
 .about_me{
   height: 80%;
   top: 0;
@@ -107,6 +119,7 @@ img {
   font: serif;
 }
 
+/**/
 .image_discription{
   height: 80%;
   top: 560px;
@@ -119,6 +132,7 @@ img {
   text-align: center;
 }
 
+/**/
 .socials{
   height: 100%;
   top: 125%;
@@ -130,42 +144,52 @@ img {
   font: serif;
 }
 
+/**/
 .container {
   margin-top: 20px;
   background:#42455a;
 }
 
+/**/
 .image-thumbnails {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+/**/
 .image-thumbnails img {
   margin: 10px;
   max-height: 150px;
   max-width: 150px;
 }
 
+/**/
 .image-thumbnails img:hover {
   border: thick solid black;
 }
 
+/**/
 .about-me-text{
   height: 80%;
   top: 25%;
   left: 50px;
   right: 0;
   color: black;
-  position: absolute;
+  position: relative;
   font-size: 15px;
   font: serif;
 }
 
+/**/
 #project_body{
   margin-left: auto;
   margin-right: auto;
   width: 650px;
 }
 
+/**/
+#random-image-container img {
+  margin-top: 20px;
+}
 
