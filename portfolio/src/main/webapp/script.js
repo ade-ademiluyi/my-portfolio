@@ -12,14 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//Number of images in the gallery_images
+var NUM_OF_IMAGES = 17;
+
 /**
  * Adds a random photo.
  */
+
 function randomizeImage() {
-  // The images directory contains 17 images, so generate a random index between
-  // 1 and 17.
-  const imageIndex = Math.floor(Math.random() * 17) + 1;
-  const imgUrl = 'new_images/lagos-' + imageIndex + '.jpg';
+  // The images directory contains a list of images, so this generates a random image from the list
+  const imageIndex = Math.floor(Math.random() * NUM_OF_IMAGES) + 1;
+  const imgUrl = 'gallery_images/lagos-' + imageIndex + '.jpg';
 
   const imgElement = document.createElement('img');
   imgElement.src = imgUrl;
