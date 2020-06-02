@@ -69,3 +69,22 @@ function addNameToDom(name) {
   const NameContainer = document.getElementById('name-container');
   NameContainer.innerText = name;
 }
+
+/**
+ * Fetches stats from the servers and adds them to the DOM.
+ */
+function getServer() {
+  fetch('/data').then(response => response.json()).then((stat) => {
+    // stats is an object, not a string, so we have to
+    // reference its fields to create HTML content
+    const statsListElement = document.getElementById('name-container');
+    statsListElement.innerHTML = '';
+    statsListElement.appendChild(
+        createListElement('Name: ' + stat.list_array[0]));
+    statsListElement.appendChild(
+        createListElement('Ade: ' + stat.list_array[1]));
+    statsListElement.appendChild(
+        createListElement('Sex: ' + stat.list_array[2]));
+
+  });
+}
