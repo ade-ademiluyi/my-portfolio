@@ -34,19 +34,6 @@ function randomizeImage() {
 }
 
 /**
- * Fetches my name from the server and adds it to the DOM.
- */
-function getName() {
-  console.log('Fetching his name.');
-
-  // The fetch() function returns a Promise because the request is asynchronous.
-  const responsePromise = fetch('/data');
-
-  // When the request is complete, pass the response into handleResponse().
-  responsePromise.then(handleResponse);
-}
-
-/**
  * Handles response by converting it to text and passing the result to
  * addNameToDom().
  */
@@ -73,18 +60,25 @@ function addNameToDom(name) {
 /**
  * Fetches stats from the servers and adds them to the DOM.
  */
-function getServer() {
-  fetch('/data').then(response => response.json()).then((stat) => {
+function getName() {
+  fetch('/data').then(response => response.json()).then((list_array) => {
     // stats is an object, not a string, so we have to
     // reference its fields to create HTML content
     const statsListElement = document.getElementById('name-container');
     statsListElement.innerHTML = '';
     statsListElement.appendChild(
-        createListElement('Name: ' + stat.list_array[0]));
+        createListElement('Name: ' + list_array[0]));
     statsListElement.appendChild(
-        createListElement('Ade: ' + stat.list_array[1]));
+        createListElement('Date of Birth: ' + list_array[1]));
     statsListElement.appendChild(
-        createListElement('Sex: ' + stat.list_array[2]));
+        createListElement('no. of sibling: ' + list_array[2]));
 
   });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }

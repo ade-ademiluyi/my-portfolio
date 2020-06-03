@@ -33,13 +33,14 @@ private ArrayList<String> list_array;
   @Override
   public void init() {
     list_array = new ArrayList<String>();
-    list_array.add("What the fuck");
-    list_array.add("Fuck this");
-    list_array.add("Bullshite");
+    list_array.add("Adetowo Ademiluyi");
+    list_array.add("july 20, 1999");
+    list_array.add("1");
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    init();
     Gson gson = new Gson();
     String json = gson.toJson(list_array);
     response.setContentType("application/json;");
