@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body vlink="grey">
+  <body vlink="grey" onload="getComments()">
     <h1 id="myHeader">ADE's PORTFOLIO!</h1>
     <div class="content">
       <div class = "overlay">
@@ -49,6 +49,16 @@
             <br>
             <li><a href = "http://twitter.com/adewxnmi"> Twitter</a></li>
           </ul>
+          <br>
+          <br>
+
+          <form action="/data" method="POST">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" size= "15" maxlength="10"><br>
+            <label for="comment">Leave a comment:</label><br>
+            <input type="text" id="comment" name="comment_left" size= "" maxlength="100"><br><br>
+            <input type="submit" value="Submit">
+          </form>
         </div>
       <div class="about_me">
         <div class = "about_me2">

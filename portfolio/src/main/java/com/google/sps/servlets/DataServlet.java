@@ -28,22 +28,34 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-private ArrayList<String> list_array;
+  private ArrayList<String> list_array = new ArrayList<String>();
 
-  @Override
-  public void init() {
-    list_array = new ArrayList<String>();
-    list_array.add("Adetowo Ademiluyi");
-    list_array.add("july 20, 1999");
-    list_array.add("1");
-  }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    init();
+    //init();
     Gson gson = new Gson();
     String json = gson.toJson(list_array);
     response.setContentType("application/json;");
     response.getWriter().println(json);
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+    // Get the input from the form.
+    String UserComment = getuserComment(request);
+    list_array.add(UserComment);
+
+    // Redirect back to the HTML page.
+    response.sendRedirect("/index.html");
+  }
+
+  /** Returns the comment entered by the user. */
+  private String getuserComment(HttpServletRequest request) {
+    // Get the input from the form.
+    String playerChoiceString = request.getParameter("comment_left");
+
+    return playerChoiceString;
   }
 }

@@ -58,22 +58,18 @@ function addNameToDom(name) {
 }
 
 /**
- * Fetches stats from the servers and adds them to the DOM.
+ * Fetches comments from the servers and adds them to the DOM.
  */
-function getName() {
+function getComments() {
   fetch('/data').then(response => response.json()).then((list_array) => {
-    // stats is an object, not a string, so we have to
-    // reference its fields to create HTML content
+    // list_array is an array of comments
+    var comment_count = 0;
     const statsListElement = document.getElementById('name-container');
     statsListElement.innerHTML = '';
     statsListElement.appendChild(
-        createListElement('Name: ' + list_array[0]));
-    statsListElement.appendChild(
-        createListElement('Date of Birth: ' + list_array[1]));
-    statsListElement.appendChild(
-        createListElement('no. of sibling: ' + list_array[2]));
-
-  });
+        createListElement('comment: ' + list_array[comment_count]));
+    });
+    comment_count++;
 }
 
 /** Creates an <li> element containing text. */
