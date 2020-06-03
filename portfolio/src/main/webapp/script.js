@@ -12,17 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//Number of images in the gallery_images
+var NUM_OF_IMAGES = 17;
+
 /**
- * Adds a random greeting to the page.
+ * Adds a random photo.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+function randomizeImage() {
+  // The images directory contains a list of images, so this generates a random image from the list
+  const imageIndex = Math.floor(Math.random() * NUM_OF_IMAGES) + 1;
+  const imgUrl = 'gallery_images/lagos-' + imageIndex + '.jpg';
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const imgElement = document.createElement('img');
+  imgElement.src = imgUrl;
+
+  const imageContainer = document.getElementById('random-image-container');
+  // Remove the previous image.
+  imageContainer.innerHTML = '';
+  imageContainer.appendChild(imgElement);
 }
