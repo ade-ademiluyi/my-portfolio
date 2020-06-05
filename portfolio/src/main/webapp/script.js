@@ -61,20 +61,22 @@ function addNameToDom(name) {
  * Fetches comments from the servers and adds them to the DOM.
  */
 function getComments() {
-  fetch('/data').then(response => response.json()).then((list_array) => {
-    // list_array is an array of comments
-    var comment_count = 0;
-    const statsListElement = document.getElementById('name-container');
-    statsListElement.innerHTML = '';
-    statsListElement.appendChild(
-        createListElement('comment: ' + list_array[comment_count]));
-    });
-    comment_count++;
+  fetch('/data').then(response => response.json()).then((comments) => {
+    const commentsListElement = document.getElementById('comment-list');
+    comments.forEach((comment_id) => {
+      commentsListElement.appendChild(createListElement(comment_id));
+    })
+  });
 }
 
 /** Creates an <li> element containing text. */
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+function createListElement(comment_id) {
+  const commentElement = document.createElement('li');
+  commentElement.className = 'comment_id';
+
+  const comment_leftElement = document.createElement('span');
+  comment_leftElement.innerText = comment_id.comment_left;
+
+  commentElement.appendChild(comment_leftElement);
+  return commentElement;
 }
