@@ -40,9 +40,13 @@ public class DataServlet extends HttpServlet {
     
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
+    //int num_of_comments = getNumComments(request);
+    //int counter = 0;
 
     List<Comment> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
+      //counter++;
+      //if(counter > num_of_comments) break;
       long id = entity.getKey().getId();
       String comment_left = (String) entity.getProperty("comment_left");
       long timestamp = (long) entity.getProperty("timestamp");
@@ -81,4 +85,8 @@ public class DataServlet extends HttpServlet {
 
     return playerChoiceString;
   }
+
+//   private int getNumComments(HttpServletRequest request) {
+//         return Integer.parseInt(request.getParameter("num_comments"));
+//     }
 }

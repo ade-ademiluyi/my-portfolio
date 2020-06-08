@@ -16,6 +16,7 @@
             <li><a href = "aboutME.html">About Me!</a></li>
             <li><a href = "mailto:aaademiluyi99@gmail.com" >Contact</li>
             <li><a href = "projects.html">Projects</li>
+            <li><a href = "charts.html">Charts</a></li>
             <li><a href = "images.html" class = "gallery"><span>Gallery</span></a></li>
           </ul>
         </div>
@@ -51,14 +52,19 @@
           </ul>
           <br>
           <br>
-
           <form action="/data" method="POST">
             <label for="comment">Leave a comment:</label><br>
-            <input type="text" name="comment_left" size= "" maxlength="100"><br><br>
-            <br>
+            <input type="text" name="comment_left"  maxlength="100"><br>
             <button>Submit</button>
           </form>
+
           <ul id="comment-list"></ul>
+
+          <form action="/data" method="POST">
+            <label for="numcomments">Number of comments:</label><br>
+            <input type="number" name="num_comments" id="commentsPerPage" maxlength="1" size ="5"><br>
+            <button>Submit</button>
+          </form>  
         </div>
       <div class="about_me">
         <div class = "about_me2">

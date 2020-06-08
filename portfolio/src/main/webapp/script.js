@@ -62,9 +62,9 @@ function addNameToDom(name) {
  */
 function getComments() {
   fetch('/data').then(response => response.json()).then((comments) => {
-    const commentsListElement = document.getElementById('comment-list');
+    const comment_idListElement = document.getElementById('comment-list');
     comments.forEach((comment_id) => {
-      commentsListElement.appendChild(createListElement(comment_id));
+      comment_idListElement.appendChild(createListElement(comment_id));
     })
   });
 }
@@ -77,6 +77,23 @@ function createListElement(comment_id) {
   const comment_leftElement = document.createElement('span');
   comment_leftElement.innerText = comment_id.comment_left;
 
+  const deleteButtonElement = document.createElement('button');
+  deleteButtonElement.innerText = 'Delete';
+  deleteButtonElement.addEventListener('click', () => {
+    deleteTask(comment_id);
+
+// Remove the task from the DOM.
+    commentElement.remove();
+  });
+
   commentElement.appendChild(comment_leftElement);
+  commentElement.appendChild(deleteButtonElement);
   return commentElement;
+}
+
+/** Tells the server to delete the task. */
+function deleteTask(comment_id) {
+  const params = new URLSearchParams();
+  params.append('id', comment_id.id);
+  fetch('/delete-data', {method: 'POST', body: params});
 }
