@@ -230,3 +230,15 @@ img {
   padding: 5px;
   width: 300px;
 }
+
+/**/
+#map {
+  position: absolute;
+  border: thin solid black;
+  height: 250px;
+  width: 250px;
+  top: 50%;
+  left: 80%;
+  right: 0;
+  
+}
