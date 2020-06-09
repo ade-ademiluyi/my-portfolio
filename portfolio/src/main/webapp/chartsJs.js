@@ -21,21 +21,24 @@ function drawChart() {
   const data = new google.visualization.DataTable();
   data.addColumn('string', 'Food');
   data.addColumn('number', 'percentage');
-        data.addRows([
-          ['pounded yam', 10],
-          ['Goat meat', 20],
-          ['Efo riro', 10],
-          ['Beans', 20],
-          ['Jollof rice', 15]
-        ]);
+    data.addRows([
+    ['pounded yam', 10],
+    ['Goat meat', 20],
+    ['Efo riro', 10],
+    ['Beans', 20],
+    ['Jollof rice', 15]
+  ]);
 
-  const options = {
-    'title': 'Favorite foods',
-    'width':500,
-    'height':400
-  };
+  var piechart_options = {title:'Pie Chart: Favorite Food',
+  width:700,
+  height:500};
+  var piechart = new google.visualization.PieChart(document.getElementById('piechart-container'));
+  piechart.draw(data, piechart_options);
 
-  const chart = new google.visualization.PieChart(
-      document.getElementById('chart-container'));
-  chart.draw(data, options);
+  var barchart_options = {title:'Bar chart: Favorite Food',
+  width:700,
+  height:500,
+  legend: 'none'};
+  var barchart = new google.visualization.BarChart(document.getElementById('barchart-container'));
+  barchart.draw(data, barchart_options);
 }

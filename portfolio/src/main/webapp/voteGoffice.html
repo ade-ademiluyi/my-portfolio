@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Favorite Google  Office</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="voting.js"></script>
+  </head>
+  <body>
+    <h1>Favorite Google  Office</h1>
+    <div id="chart-container"></div>
+    <h2>Vote</h2>
+    <form action="/color-data" method="POST">
+      <select name="color">
+        <option value="Mountain View">Mountain View</option>
+        <option value="Ann Arbor">Ann Arbor</option>
+        <option value="Kirkland">Kirkland</option>
+        <option value="Seattle">Seattle</option>
+        <option value="Los Angeles">Los Angeles</option>
+        <option value="Pittsburgh">Pittsburgh</option>
+        <option value="Sunnyvale">Sunnyvale</option>
+        <option value="San Francisco">San Francisco</option>
+        <option value="Cambridge">Cambridge</option>
+        <option value="Detroit">Detroit</option>
+      </select>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
