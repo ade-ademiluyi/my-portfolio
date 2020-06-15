@@ -23,6 +23,7 @@ import com.google.appengine.api.datastore.Query.SortDirection;
 import com.google.gson.Gson;
 import com.google.sps.data.Comment;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.annotation.WebServlet;
@@ -40,18 +41,14 @@ public class DataServlet extends HttpServlet {
     
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
-    //int num_of_comments = getNumComments(request);
-    //int counter = 0;
 
     List<Comment> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
-      //counter++;
-      //if(counter > num_of_comments) break;
       long id = entity.getKey().getId();
-      String comment_left = (String) entity.getProperty("comment_left");
+      String comment_text = (String) entity.getProperty("comment_text");
       long timestamp = (long) entity.getProperty("timestamp");
 
-      Comment comment_id = new Comment(id, comment_left, timestamp);
+      Comment comment_id = new Comment(id, comment_text, timestamp);
       comments.add(comment_id);
     }
 
@@ -64,11 +61,11 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the input from the form.
-    String comment_left = getuserComment(request);
+    String comment_text = getuserComment(request);
     long timestamp = System.currentTimeMillis();
 
     Entity taskEntity = new Entity("Comment");
-    taskEntity.setProperty("comment_left", comment_left);
+    taskEntity.setProperty("comment_text", comment_text);
     taskEntity.setProperty("timestamp", timestamp);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -80,13 +77,9 @@ public class DataServlet extends HttpServlet {
 
   /** Returns the comment entered by the user. */
   private String getuserComment(HttpServletRequest request) {
-    // Get the input from the form.
-    String playerChoiceString = request.getParameter("comment_left");
+    // Get the string comment from the form.
+    String playerChoiceString = request.getParameter("comment_text");
 
     return playerChoiceString;
   }
-
-//   private int getNumComments(HttpServletRequest request) {
-//         return Integer.parseInt(request.getParameter("num_comments"));
-//     }
 }

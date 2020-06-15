@@ -60,8 +60,8 @@ function addNameToDom(name) {
 /**
  * Fetches comments from the servers and adds them to the DOM.
  */
-function getComments() {
-  fetch('/data').then(response => response.json()).then((comments) => {
+async function getComments() {
+  await fetch('/data').then(response => response.json()).then((comments) => {
     const comment_idListElement = document.getElementById('comment-list');
     comments.forEach((comment_id) => {
       comment_idListElement.appendChild(createListElement(comment_id));
@@ -74,28 +74,16 @@ function createListElement(comment_id) {
   const commentElement = document.createElement('li');
   commentElement.className = 'comment_id';
 
-  const comment_leftElement = document.createElement('span');
-  comment_leftElement.innerText = comment_id.comment_left;
+  const comment_textElement = document.createElement('span');
+  comment_textElement.innerText = comment_id.comment_text;
 
-  const deleteButtonElement = document.createElement('button');
-  deleteButtonElement.innerText = 'Delete';
-  deleteButtonElement.addEventListener('click', () => {
-    deleteTask(comment_id);
-
-// Remove the task from the DOM.
-    commentElement.remove();
-  });
-
-  commentElement.appendChild(comment_leftElement);
-  commentElement.appendChild(deleteButtonElement);
+  commentElement.appendChild(comment_textElement);
   return commentElement;
 }
 
-/** Tells the server to delete the task. */
-function deleteTask(comment_id) {
-  const params = new URLSearchParams();
-  params.append('id', comment_id.id);
-  fetch('/delete-data', {method: 'POST', body: params});
+async function deleteComments() {
+  await fetch('/delete-data', { method: 'POST'});
+  window.location.reload();
 }
 
 function createMap() {
@@ -103,3 +91,115 @@ function createMap() {
   document.getElementById('map'),
   {center: {lat: 37.422, lng: -122.084}, zoom: 16});
 }
+
+function initMap() {
+  // Styles a map in night mode.
+  var lagos = {lat: 6.5244, lng: 3.3792};
+  var sudan = {lat: 12.8628, lng: 30.2176};
+  var mauritania = {lat: 18.079021, lng: -15.965662};
+  var map = new google.maps.Map(document.getElementById('map'), {
+  zoom: 5,
+  center: lagos,
+  styles: [
+    {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+    {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+    {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+    {
+      featureType: 'administrative.locality',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#d59563'}]
+    },
+    {
+      featureType: 'poi',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#d59563'}]
+    },
+    {
+      featureType: 'poi.park',
+      elementType: 'geometry',
+      stylers: [{color: '#263c3f'}]
+    },
+    {
+      featureType: 'poi.park',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#6b9a76'}]
+    },
+    {
+      featureType: 'road',
+      elementType: 'geometry',
+      stylers: [{color: '#38414e'}]
+    },
+    {
+      featureType: 'road',
+      elementType: 'geometry.stroke',
+      stylers: [{color: '#212a37'}]
+    },
+    {
+      featureType: 'road',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#9ca5b3'}]
+     },
+    {
+      featureType: 'road.highway',
+      elementType: 'geometry',
+      stylers: [{color: '#746855'}]
+    },
+    {
+      featureType: 'road.highway',
+      elementType: 'geometry.stroke',
+      stylers: [{color: '#1f2835'}]
+    },
+    {
+      featureType: 'road.highway',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#f3d19c'}]
+    },
+    {
+      featureType: 'transit',
+      elementType: 'geometry',
+      stylers: [{color: '#2f3948'}]
+    },
+    {
+      featureType: 'transit.station',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#d59563'}]
+    },
+    {
+      featureType: 'water',
+      elementType: 'geometry',
+      stylers: [{color: '#17263c'}]
+    },
+    {
+      featureType: 'water',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#515c6d'}]
+    },
+    {
+      featureType: 'water',
+      elementType: 'labels.text.stroke',
+      stylers: [{color: '#17263c'}]
+    }
+  ]
+ });
+    addLandmark(
+      map, 6.5244, 3.3792, 'Lagos',
+      'This is where i was born.')
+    addLandmark(
+      map, 12.8628, 30.2176, 'Sudan',
+      'This is a country i want to visit.')
+    addLandmark(
+      map, 18.079021, -15.965662, 'mauritania',
+      'Also a country i would like to visit');
+      }
+
+/** Adds a marker that shows an info window when clicked. */
+function addLandmark(map, lat, lng, title, description) {
+  const marker = new google.maps.Marker(
+    {position: {lat: lat, lng: lng}, map: map, title: title});
+
+  const infoWindow = new google.maps.InfoWindow({content: description});
+  marker.addListener('click', () => {
+    infoWindow.open(map, marker);
+  });
+}
+

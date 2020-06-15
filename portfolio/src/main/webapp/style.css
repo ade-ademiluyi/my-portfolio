@@ -178,7 +178,7 @@ img {
 
 /**/
 .about-me-text {
-  width: 100%;
+  width: 80%;
   height: 100%;
   top: 25%;
   left: 50px;
@@ -237,8 +237,7 @@ img {
   border: thin solid black;
   height: 250px;
   width: 250px;
-  top: 50%;
+  top: 40%;
   left: 80%;
   right: 0;
-  
 }

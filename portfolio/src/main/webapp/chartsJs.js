@@ -42,3 +42,4 @@ function drawChart() {
   var barchart = new google.visualization.BarChart(document.getElementById('barchart-container'));
   barchart.draw(data, barchart_options);
 }
+
