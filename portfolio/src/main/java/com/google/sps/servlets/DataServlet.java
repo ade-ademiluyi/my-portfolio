@@ -45,11 +45,11 @@ public class DataServlet extends HttpServlet {
     List<Comment> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
-      String comment_text = (String) entity.getProperty("comment_text");
+      String commentText = (String) entity.getProperty("commentText");
       long timestamp = (long) entity.getProperty("timestamp");
 
-      Comment comment_id = new Comment(id, comment_text, timestamp);
-      comments.add(comment_id);
+      Comment comment = new Comment(id, commentText, timestamp);
+      comments.add(comment);
     }
 
     Gson gson = new Gson();
@@ -61,11 +61,11 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the input from the form.
-    String comment_text = getuserComment(request);
+    String commentText = getUserComment(request);
     long timestamp = System.currentTimeMillis();
 
     Entity taskEntity = new Entity("Comment");
-    taskEntity.setProperty("comment_text", comment_text);
+    taskEntity.setProperty("commentText", commentText);
     taskEntity.setProperty("timestamp", timestamp);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -76,9 +76,9 @@ public class DataServlet extends HttpServlet {
   }
 
   /** Returns the comment entered by the user. */
-  private String getuserComment(HttpServletRequest request) {
+  private String getUserComment(HttpServletRequest request) {
     // Get the string comment from the form.
-    String playerChoiceString = request.getParameter("comment_text");
+    String playerChoiceString = request.getParameter("commentText");
 
     return playerChoiceString;
   }

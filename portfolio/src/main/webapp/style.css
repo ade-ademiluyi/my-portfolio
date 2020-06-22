@@ -214,16 +214,16 @@ img {
 }
 
 /**/
-#comment{
+#commentId{
   height:25px;
   font-size:10pt;
 }
 
-.comment_id span {
+.comment span {
   flex-grow: 1;
 }
 
-.comment_id {
+.comment {
   border: thin solid grey;
   display: flex;
   margin: 5px;

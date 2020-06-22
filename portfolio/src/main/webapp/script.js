@@ -62,22 +62,22 @@ function addNameToDom(name) {
  */
 async function getComments() {
   await fetch('/data').then(response => response.json()).then((comments) => {
-    const comment_idListElement = document.getElementById('comment-list');
-    comments.forEach((comment_id) => {
-      comment_idListElement.appendChild(createListElement(comment_id));
+    const commentListElement = document.getElementById('comment-list');
+    comments.forEach((comment) => {
+      commentListElement.appendChild(createListElement(comment));
     })
   });
 }
 
 /** Creates an <li> element containing text. */
-function createListElement(comment_id) {
+function createListElement(comment) {
   const commentElement = document.createElement('li');
-  commentElement.className = 'comment_id';
+  commentElement.className = 'comment';
 
-  const comment_textElement = document.createElement('span');
-  comment_textElement.innerText = comment_id.comment_text;
+  const commentTextElement = document.createElement('span');
+  commentTextElement.innerText = comment.commentText;
 
-  commentElement.appendChild(comment_textElement);
+  commentElement.appendChild(commentTextElement);
   return commentElement;
 }
 
