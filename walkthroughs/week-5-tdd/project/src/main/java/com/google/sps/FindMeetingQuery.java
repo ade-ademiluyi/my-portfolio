@@ -24,19 +24,19 @@ import java.util.Collections;
 public final class FindMeetingQuery {
     public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
 
-        //THIS GETS THE LIST OF OPTIONAL ATTENDEES FOR THE REQUESTED MEETING
+        //this gets the list of optional attendees for the requested meeting
         Set<String> optionalAttendees = new HashSet<>();
         for(String attendee: request.getOptionalAttendees()) {
             optionalAttendees.add(attendee);
         }
         
-        //THIS GETS THE LIST OF ATTENDEES FOR THE REQUESTED MEETING
+        //this gets the list of attendees for the requested meeting
         Set<String> mandatoryAttendees = new HashSet<>();
         for(String attendee: request.getAttendees()) {
             mandatoryAttendees.add(attendee);
         }
 
-        //THIS GETS THE DURATION OF THE REQUESTED MEETING
+        //this gets the duration of the requested meeting
         int duration = (int)request.getDuration();
 
         //IF NO mandatoryAttendees IS IN THE MEETING
@@ -49,7 +49,7 @@ public final class FindMeetingQuery {
                     timesExcluded.add(event.getWhen());
                 }
             }
-            //
+            
             return timeAvailable(timesExcluded, duration);
         } 
         else 

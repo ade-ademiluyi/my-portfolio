@@ -34,7 +34,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-// Servlet that deletes all the user comments.
+/** Servlet that deletes all the user comments.*/
 @WebServlet("/delete-data")
 public class deleteDataServlet extends HttpServlet {
   @Override
