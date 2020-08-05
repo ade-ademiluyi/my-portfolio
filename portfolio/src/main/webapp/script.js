@@ -18,7 +18,6 @@ var NUM_OF_IMAGES = 17;
 /**
  * Adds a random photo.
  */
-
 function randomizeImage() {
   // The images directory contains a list of images, so this generates a random image from the list
   const imageIndex = Math.floor(Math.random() * NUM_OF_IMAGES) + 1;
@@ -53,15 +52,15 @@ function handleResponse(response) {
 function addNameToDom(name) {
   console.log('Adding name to dom: ' + name);
 
-  const NameContainer = document.getElementById('name-container');
-  NameContainer.innerText = name;
+  const nameContainer = document.getElementById('name-container');
+  nameContainer.innerText = name;
 }
 
 /**
  * Fetches comments from the servers and adds them to the DOM.
  */
 async function getComments() {
-  await fetch('/data').then(response => response.json()).then((comments) => {
+    fetch('/data').then(response => response.json()).then((comments) => {
     const commentListElement = document.getElementById('comment-list');
     comments.forEach((comment) => {
       commentListElement.appendChild(createListElement(comment));

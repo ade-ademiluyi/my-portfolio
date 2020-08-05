@@ -21,10 +21,10 @@ function drawChart() {
   data.addColumn('string', 'Food');
   data.addColumn('number', 'percentage');
     data.addRows([
-    ['pounded yam', 10],
-    ['Goat meat', 20],
-    ['Efo riro', 10],
-    ['Beans', 20],
+    ['yam', 10],
+    ['Goat', 20],
+    ['sleep', 10],
+    ['Bean', 20],
     ['Jollof rice', 15]
   ]);
 
@@ -41,4 +41,3 @@ function drawChart() {
   var barchart = new google.visualization.BarChart(document.getElementById('barchart-container'));
   barchart.draw(data, barchart_options);
 }
-

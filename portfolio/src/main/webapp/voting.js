@@ -17,13 +17,13 @@ google.charts.setOnLoadCallback(drawChart);
 
 /** Fetches color data and uses it to create a chart. */
 function drawChart() {
-  fetch('/color-data').then(response => response.json())
-  .then((colorVotes) => {
+    fetch('/color-data').then(response => response.json())
+    .then((colorVotes) => {
     const data = new google.visualization.DataTable();
     data.addColumn('string', 'Color');
     data.addColumn('number', 'Votes');
     Object.keys(colorVotes).forEach((color) => {
-      data.addRow([color, colorVotes[color]]);
+    data.addRow([color, colorVotes[color]]);
     });
 
     const options = {
@@ -32,8 +32,7 @@ function drawChart() {
       'height':500
     };
 
-    const chart = new google.visualization.ColumnChart(
-        document.getElementById('chart-container'));
+    const chart = new google.visualization.ColumnChart(document.getElementById('chart-container'));
     chart.draw(data, options);
   });
 }

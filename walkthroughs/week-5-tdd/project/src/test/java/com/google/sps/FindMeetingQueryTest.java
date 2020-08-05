@@ -198,7 +198,6 @@ public final class FindMeetingQueryTest {
   public void nestedEvents() {
     // Have an event for each person, but have one person's event fully contain another's event. We
     // should see two options.
-    //
     // Events  :       |----A----|
     //                   |--B--|
     // Day     : |---------------------|
