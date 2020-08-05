@@ -32,3 +32,68 @@ function randomizeImage() {
   imageContainer.innerHTML = '';
   imageContainer.appendChild(imgElement);
 }
+
+/**
+ * Handles response by converting it to text and passing the result to
+ * addNameToDom().
+ */
+function handleResponse(response) {
+  console.log('Handling the response.');
+
+  // response.text() returns a Promise, because the response is a stream of
+  // content and not a simple variable.
+  const textPromise = response.text();
+
+  // When the response is converted to text, pass the result into the
+  // addNameToDom() function.
+  textPromise.then(addNameToDom);
+}
+
+/** Adds a name to the DOM. */
+function addNameToDom(name) {
+  console.log('Adding name to dom: ' + name);
+
+  const NameContainer = document.getElementById('name-container');
+  NameContainer.innerText = name;
+}
+
+/**
+ * Fetches comments from the servers and adds them to the DOM.
+ */
+function getComments() {
+  fetch('/data').then(response => response.json()).then((comments) => {
+    const comment_idListElement = document.getElementById('comment-list');
+    comments.forEach((comment_id) => {
+      comment_idListElement.appendChild(createListElement(comment_id));
+    })
+  });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(comment_id) {
+  const commentElement = document.createElement('li');
+  commentElement.className = 'comment_id';
+
+  const comment_leftElement = document.createElement('span');
+  comment_leftElement.innerText = comment_id.comment_left;
+
+  const deleteButtonElement = document.createElement('button');
+  deleteButtonElement.innerText = 'Delete';
+  deleteButtonElement.addEventListener('click', () => {
+    deleteTask(comment_id);
+
+// Remove the task from the DOM.
+    commentElement.remove();
+  });
+
+  commentElement.appendChild(comment_leftElement);
+  commentElement.appendChild(deleteButtonElement);
+  return commentElement;
+}
+
+/** Tells the server to delete the task. */
+function deleteTask(comment_id) {
+  const params = new URLSearchParams();
+  params.append('id', comment_id.id);
+  fetch('/delete-data', {method: 'POST', body: params});
+}
