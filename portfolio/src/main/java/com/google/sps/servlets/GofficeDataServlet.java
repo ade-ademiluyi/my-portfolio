@@ -14,27 +14,36 @@
 
 package com.google.sps.servlets;
 
-import com.google.appengine.api.datastore.DatastoreService;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
+import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet responsible for deleting tasks. */
-@WebServlet("/delete-task")
-public class DeleteTaskServlet extends HttpServlet {
+
+@WebServlet("/color-data")
+public class GofficeDataServlet extends HttpServlet {
+
+  private Map<String, Integer> colorVotes = new HashMap<>();
+
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    response.setContentType("application/json");
+    Gson gson = new Gson();
+    String json = gson.toJson(colorVotes);
+    response.getWriter().println(json);
+  }
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    long id = Long.parseLong(request.getParameter("id"));
+    String color = request.getParameter("color");
+    int currentVotes = colorVotes.containsKey(color) ? colorVotes.get(color) : 0;
+    colorVotes.put(color, currentVotes + 1);
 
-    Key taskEntityKey = KeyFactory.createKey("Task", id);
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.delete(taskEntityKey);
+    response.sendRedirect("/voteGoffice.html");
   }
 }
-

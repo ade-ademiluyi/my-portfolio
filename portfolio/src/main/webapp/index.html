@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <title>Adetowo Ademiluyi's Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRiBiiE-kazijuv6zUO_oieljUiWwdh9M&callback=initMap"async defer></script>
     <script src="script.js"></script>
   </head>
-  <body vlink="grey" onload="getComments()">
+  <body vlink="grey" onload="getComments();initMap();">
     <h1 id="myHeader">ADE's PORTFOLIO!</h1>
     <div class="content">
       <div class = "overlay">
@@ -53,18 +56,15 @@
           <br>
           <br>
           <form action="/data" method="POST">
-            <label for="comment">Leave a comment:</label><br>
-            <input type="text" name="comment_left"  maxlength="100"><br>
+            <label for="commentId">What do you think about my page:</label><br>
+            <input type="text" name="commentText"  maxlength="100"><br>
             <button>Submit</button>
           </form>
+          <div class="col s6">
+            <a href="" class="btn-large" onclick="deleteComments()">Delete Comments</a>
+          </div>
 
-          <ul id="comment-list"></ul>
-
-          <form action="/data" method="POST">
-            <label for="numcomments">Number of comments:</label><br>
-            <input type="number" name="num_comments" id="commentsPerPage" maxlength="1" size ="5"><br>
-            <button>Submit</button>
-          </form>  
+          <ul id="comment-list"></ul>  
         </div>
       <div class="about_me">
         <div class = "about_me2">
@@ -89,6 +89,7 @@
           </p>
         </div>
       </div>
+      <div id="map"></div><br><br>
     </div>
     <div class="footer">
       <p>Ade </p>

@@ -178,7 +178,7 @@ img {
 
 /**/
 .about-me-text {
-  width: 100%;
+  width: 80%;
   height: 100%;
   top: 25%;
   left: 50px;
@@ -214,19 +214,30 @@ img {
 }
 
 /**/
-#comment{
+#commentId{
   height:25px;
   font-size:10pt;
 }
 
-.comment_id span {
+.comment span {
   flex-grow: 1;
 }
 
-.comment_id {
+.comment {
   border: thin solid grey;
   display: flex;
   margin: 5px;
   padding: 5px;
   width: 300px;
+}
+
+/**/
+#map {
+  position: absolute;
+  border: thin solid black;
+  height: 250px;
+  width: 250px;
+  top: 40%;
+  left: 80%;
+  right: 0;
 }
